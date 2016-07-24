@@ -12,17 +12,17 @@
 
 var bio = {
     "name" : "Jennifer Follero",
-    "role" : "Be Awesome",
+    "role" : "Become an Awesome FEND Web Developer",
     "welcomeMessage" : "Cupcake ipsum dolor sit amet. Donut jelly powder bonbon. Halvah sesame snaps gingerbread sugar plum sweet muffin muffin pie chocolate. Muffin chocolate bar carrot cake cheesecake sugar plum.",
-    "biopic" : "images/fry.jpg",
+    "biopic" : "images/emoji.png",
     "contacts" : {
-        "mobile": 123,
+        "mobile": "323-123-4567",
         "email": "jennikins813@yahoo.com",
         "github": "jennikins813",
         "twitter": "@jennikins813",
         "location": "Los Angeles, CA"
     },
-    "skills" : ["awesomeness", "HTML", "CSS", "JS"]
+    "skills" : ["awesomeness", "JavaScript", "HTML", "CSS"]
 }
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -69,7 +69,7 @@ var work = {
         },
         {
             "employer": "Japan Airlines",
-            "title": "Assistant Manager, Marketing and Sales",
+            "title": "Assistant Manager, Passenger Marketing and Sales",
             "location": "El Segundo, CA",
             "dates": "2004-2014",
             "description": "Cupcake ipsum dolor sit amet. Donut jelly powder bonbon."  
@@ -77,53 +77,35 @@ var work = {
     ]
 }
 
-// for (job in work.jobs) {
-//     $("#workExperience").append(HTMLworkStart);     //Work Experience header now shows
-//     var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-//     var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-//     $(".work-entry:last").append(formattedEmployer + formattedTitle);
-
-//     var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-//     $(".work-entry:last").append(formattedWorkDates);
-//     var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-//     $(".work-entry:last").append(formattedWorkLocation);
-//     $(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[job].description));
-// };
-
-function displayWork() {
-    for (job in work.jobs) {
+work.display = function() {
+    for (var i = 0; i < work.jobs.length; i++) {
         $("#workExperience").append(HTMLworkStart);     //Work Experience header now shows
-        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-        var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
+        var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
         $(".work-entry:last").append(formattedEmployer + formattedTitle);
 
-        var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+        var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
         $(".work-entry:last").append(formattedWorkDates);
-        var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+        var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
         $(".work-entry:last").append(formattedWorkLocation);
-        $(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[job].description));
+        $(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[i].description));
     };
 };
-displayWork();      //invoking the function displayWork
-
-// $(document).click(function(loc) {
-//     var x = loc.pageX;
-//     var y = loc.pageY;
-//     logClicks(x,y);
-// });
-
+work.display();      //invoking the function displayWork
 
 var education = {
     "schools": [
         {
             "name": "Bitmaker Labs",
             "location": "Toronto, Canada",
+            "degree": "Full-Stack",
             "major": "RoR",
             "dates": "March-May 2014"
         },
         {
             "name": "AdeNU",
             "location": "Philippines",
+            "degree": "BS",
             "major": "Psychology",
             "dates": "1995-1999"
         }
@@ -144,52 +126,75 @@ var education = {
     ]
 }
 
+education.display = function() {
+    for (var i = 0; i < education.schools.length; i++) {
+        $("#education").append(HTMLschoolStart);     //Work Experience header now shows
+        var formattedName = HTMLschoolName.replace("%data%", education.schools[i].name);
+        var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
+        var formattedDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
+        var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
+        var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
+        var educationSchools = formattedName + formattedDegree + formattedDates + formattedLocation + formattedMajor;
+        $(".education-entry:last").append(educationSchools);
+
+        // var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+        // $(".work-entry:last").append(formattedWorkDates);
+        // var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+        // $(".work-entry:last").append(formattedWorkLocation);
+        // $(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[job].description));
+    };
+};
+education.display();      //invoking the function displayWork
+
+
 var projects = {
     "projects": [
     	{
             "title": "Portfolio",
             "dates": "July 2016",
-            "description": " ",
-            "images": " "
+            "description": "Online portfolio to showcase projects built",
+            "images": " "   
         },
         {
             "title": "Animal Trading Card",
             "dates": "June 2016",
-            "description": " ",
+            "description": "Udacity project to create an animal trading card using HTML and CSS",
             "images": " "
         },
         {
             "title": "Web Store Hackathon",
             "dates": "May 2016",
-            "description": " ",
+            "description": "Project for Hack Reactor Remote Prep Class. Still a work in progress",
             "images": " "
         },
         {
             "title": "Quote Generator",
             "dates": "May 2016",
-            "description": " ",
-            "images": " "
+            "description": "Class project for Hack Reactor Remote Prep Class",
+            "images": "images/fry.jpg"
         }
     ]
 }
 // Encapsulating Functions
 projects.display = function() {
-	for (project in projects.projects) {
+    for (var i = 0; i < projects.projects.length; i++) {
 		$("#projects").append(HTMLprojectStart);
 
-		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
 		$(".project-entry:last").append(formattedTitle);
-		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
 		$(".project-entry:last").append(formattedDates);
-		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
 		$(".project-entry:last").append(formattedDescription);
+        var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[i].images);
+        $(".project-entry:last").append(formattedImage);
 
-		if (projects.projects[project].images.length > 0) {
-			for (image in projects.projects[project].images) {
-				var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-				$(".project-entry:last").append(formattedImage);
-			}
-		}
+		// if (projects.projects[project].images.length > 0) {
+		// 	for (image in projects.projects[project].images) {
+		// 		var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+		// 		$(".project-entry:last").append(formattedImage);
+		// 	}
+		// }
 	}
 }
 projects.display();
