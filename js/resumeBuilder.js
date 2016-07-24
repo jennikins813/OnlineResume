@@ -14,7 +14,7 @@ var bio = {
     "name" : "Jennifer Follero",
     "role" : "Become an Awesome FEND Web Developer",
     "welcomeMessage" : "Cupcake ipsum dolor sit amet. Donut jelly powder bonbon. Halvah sesame snaps gingerbread sugar plum sweet muffin muffin pie chocolate. Muffin chocolate bar carrot cake cheesecake sugar plum.",
-    "biopic" : "images/emoji.png",
+    "biopic" : "images/jenfollero1.png",
     "contacts" : {
         "mobile": "323-123-4567",
         "email": "jennikins813@yahoo.com",
@@ -136,16 +136,19 @@ education.display = function() {
         var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
         var educationSchools = formattedName + formattedDegree + formattedDates + formattedLocation + formattedMajor;
         $(".education-entry:last").append(educationSchools);
-
-        // var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-        // $(".work-entry:last").append(formattedWorkDates);
-        // var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-        // $(".work-entry:last").append(formattedWorkLocation);
-        // $(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[job].description));
+    };
+    $(".education-entry:last").append(HTMLonlineClasses);
+    for (var i = 0; i < education.onlineCourses.length; i++) {
+        var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
+        var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
+        var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
+        var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
+        var educationOnline = formattedTitle + formattedSchool + formattedDates + formattedURL;
+        $(".education-entry:last").append(educationOnline);
     };
 };
-education.display();      //invoking the function displayWork
 
+education.display();      //invoking the function displayWork
 
 var projects = {
     "projects": [
@@ -153,13 +156,13 @@ var projects = {
             "title": "Portfolio",
             "dates": "July 2016",
             "description": "Online portfolio to showcase projects built",
-            "images": " "   
+            "images": "images/portfolio.png"   
         },
         {
             "title": "Animal Trading Card",
             "dates": "June 2016",
             "description": "Udacity project to create an animal trading card using HTML and CSS",
-            "images": " "
+            "images": "images/animaltradingcard.png"
         },
         {
             "title": "Web Store Hackathon",
@@ -171,7 +174,7 @@ var projects = {
             "title": "Quote Generator",
             "dates": "May 2016",
             "description": "Class project for Hack Reactor Remote Prep Class",
-            "images": "images/fry.jpg"
+            "images": " "
         }
     ]
 }
@@ -188,13 +191,6 @@ projects.display = function() {
 		$(".project-entry:last").append(formattedDescription);
         var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[i].images);
         $(".project-entry:last").append(formattedImage);
-
-		// if (projects.projects[project].images.length > 0) {
-		// 	for (image in projects.projects[project].images) {
-		// 		var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-		// 		$(".project-entry:last").append(formattedImage);
-		// 	}
-		// }
 	}
 }
 projects.display();
