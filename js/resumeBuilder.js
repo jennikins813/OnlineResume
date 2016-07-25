@@ -1,19 +1,7 @@
-// var awesomeThoughts = "I am Jen and I am AWESOME!";
-
-// .replace method:
-// [string].replace([old], [new]);
-
-// var funThoughts = awesomeThoughts.replace("AWESOME", "FUN");
-
-// $("#main").append(funThoughts);
-
-// var skills = ["awesomeness", "HTML", "CSS", "JS"];
-// $("#main").append(skills.join(" "));
-
 var bio = {
     "name" : "Jennifer Follero",
-    "role" : "Become an Awesome FEND Web Developer",
-    "welcomeMessage" : "Cupcake ipsum dolor sit amet. Donut jelly powder bonbon. Halvah sesame snaps gingerbread sugar plum sweet muffin muffin pie chocolate. Muffin chocolate bar carrot cake cheesecake sugar plum.",
+    "role" : "Awesome FEND Web Developer",
+    "welcomeMessage" : "I'm an aspiring Front-End Web Developer looking for awesome opportunities.",
     "biopic" : "images/jenfollero1.png",
     "contacts" : {
         "mobile": "323-123-4567",
@@ -23,40 +11,33 @@ var bio = {
         "location": "Los Angeles, CA"
     },
     "skills" : ["awesomeness", "JavaScript", "HTML", "CSS"]
-}
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-$("#header").prepend(formattedName, formattedRole);
+};
 
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
-$("#header").prepend(formattedBioPic);
-// $("#header").append(HTMLcontactGeneric);
+bio.display = function() {
+    var formattedName = HTMLheaderName.replace("%data%", bio.name);
+    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+    $("#header").prepend(formattedName, formattedRole);
 
-var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-$("#topContacts").append(formattedMobile);
-$("#topContacts").append(formattedEmail);
-$("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
-$("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
-$("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
+    var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+    $("#header").prepend(formattedBioPic);
 
-/////////////////////
+    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+    $("#topContacts").append(formattedMobile);
+    $("#topContacts").append(formattedEmail);
+    $("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+    $("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+    $("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
+    var formattedMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+    $("#header").append(formattedMessage);
 
-if (bio.skills.length > 0) {
     $("#header").append(HTMLskillsStart);
-
-    var formattedSkills = HTMLskills.replace("%data%", bio.skills[0]);
-    $("#skills").append(formattedSkills);
-
-    formattedSkills = HTMLskills.replace("%data%", bio.skills[1]);
-    $("#skills").append(formattedSkills);
-
-    formattedSkills = HTMLskills.replace("%data%", bio.skills[2]);
-    $("#skills").append(formattedSkills);
-
-    formattedSkills = HTMLskills.replace("%data%", bio.skills[3]);
-    $("#skills").append(formattedSkills);
-}
+    for (var i = 0; i < bio.skills.length; i++) {
+        var formattedSkills = HTMLskills.replace("%data%", bio.skills[i]);
+        $("#skills:last").append(formattedSkills);
+    }
+};
+bio.display();
 
 var work = {
     "jobs": [
@@ -75,11 +56,11 @@ var work = {
             "description": "Cupcake ipsum dolor sit amet. Donut jelly powder bonbon."  
         }
     ]
-}
+};
 
 work.display = function() {
     for (var i = 0; i < work.jobs.length; i++) {
-        $("#workExperience").append(HTMLworkStart);     //Work Experience header now shows
+        $("#workExperience").append(HTMLworkStart);
         var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
         var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
         $(".work-entry:last").append(formattedEmployer + formattedTitle);
@@ -91,16 +72,16 @@ work.display = function() {
         $(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[i].description));
     };
 };
-work.display();      //invoking the function displayWork
+work.display();
 
 var education = {
     "schools": [
         {
-            "name": "Bitmaker Labs",
-            "location": "Toronto, Canada",
-            "degree": "Full-Stack",
-            "major": "RoR",
-            "dates": "March-May 2014"
+            "name": "JAL",
+            "location": "El Segundo, CA",
+            "degree": "BS",
+            "major": "Marketing",
+            "dates": "2007-2014"
         },
         {
             "name": "AdeNU",
@@ -124,11 +105,11 @@ var education = {
             "url": "http://www.hackreactor.com"
         }
     ]
-}
+};
 
 education.display = function() {
     for (var i = 0; i < education.schools.length; i++) {
-        $("#education").append(HTMLschoolStart);     //Work Experience header now shows
+        $("#education").append(HTMLschoolStart);
         var formattedName = HTMLschoolName.replace("%data%", education.schools[i].name);
         var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
         var formattedDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
@@ -148,7 +129,7 @@ education.display = function() {
     };
 };
 
-education.display();      //invoking the function displayWork
+education.display();
 
 var projects = {
     "projects": [
@@ -177,8 +158,8 @@ var projects = {
             "images": " "
         }
     ]
-}
-// Encapsulating Functions
+};
+
 projects.display = function() {
     for (var i = 0; i < projects.projects.length; i++) {
 		$("#projects").append(HTMLprojectStart);
@@ -195,7 +176,6 @@ projects.display = function() {
 }
 projects.display();
 
-//// TO ADD GOOGLE MAP ///////
 $("#mapDiv").append(googleMap);
 
 
