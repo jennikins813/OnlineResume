@@ -137,24 +137,34 @@ var projects = {
             "title": "Portfolio",
             "dates": "July 2016",
             "description": "Online portfolio to showcase projects built",
-            "images": "images/portfolio.png"   
+            "images": "images/portfolio.png",
+            "url": "https://github.com/jennikins813/myportfolio"  
+        },
+        {
+            "title": "Frogger Arcade Game",
+            "dates": "July 2016",
+            "description": "Udacity project to recreate the classic arcade game, using Object Oriented JavaScript",
+            "images": "images/frogger.jpg",
+            "url": "https://github.com/jennikins813/ArcadeGame"
         },
         {
             "title": "Animal Trading Card",
             "dates": "June 2016",
             "description": "Udacity project to create an animal trading card using HTML and CSS",
-            "images": "images/animaltradingcard.png"
-        },
-        {
-            "title": "Web Store Hackathon",
-            "dates": "May 2016",
-            "description": "Project for Hack Reactor Remote Prep Class. Still a work in progress",
-            "images": " "
+            "images": "images/animaltradingcard.png",
+            "url": "https://github.com/jennikins813/AnimalTradingCard"
         },
         {
             "title": "Quote Generator",
             "dates": "May 2016",
             "description": "Class project for Hack Reactor Remote Prep Class",
+            "images": "images/hang_on_building_top.jpg",
+            "url": "https://github.com/jennikins813/QuoteGenerator"
+        },
+        {
+            "title": "Web Store Hackathon",
+            "dates": "May 2016",
+            "description": "Project for Hack Reactor Remote Prep Class. Still a work in progress",
             "images": " "
         }
     ]
@@ -165,7 +175,8 @@ projects.display = function() {
 		$("#projects").append(HTMLprojectStart);
 
 		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
-		$(".project-entry:last").append(formattedTitle);
+        var formattedTitleLink = formattedTitle.replace("#", projects.projects[i].url);
+        $(".project-entry:last").append(formattedTitleLink);
 		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
 		$(".project-entry:last").append(formattedDates);
 		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
