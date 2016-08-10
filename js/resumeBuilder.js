@@ -46,14 +46,16 @@ var work = {
             "title": "Sales Associate",
             "location": "Los Angeles, CA",
             "dates": "October 2015-present",
-            "description": "Cupcake ipsum dolor sit amet. Donut jelly powder bonbon."
+            "description": "Cupcake ipsum dolor sit amet. Donut jelly powder bonbon.",
+            "url": "http://www.worldmarket.com/"
         },
         {
             "employer": "Japan Airlines",
             "title": "Assistant Manager, Passenger Marketing and Sales",
             "location": "El Segundo, CA",
             "dates": "2004-2014",
-            "description": "Cupcake ipsum dolor sit amet. Donut jelly powder bonbon."  
+            "description": "Cupcake ipsum dolor sit amet. Donut jelly powder bonbon.",
+            "url": "http://www.ar.jal.com/arl/en/"
         }
     ]
 };
@@ -62,8 +64,9 @@ work.display = function() {
     for (var i = 0; i < work.jobs.length; i++) {
         $("#workExperience").append(HTMLworkStart);
         var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
+        var formattedEmployerLink = formattedEmployer.replace("#", work.jobs[i].url);
         var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
-        $(".work-entry:last").append(formattedEmployer + formattedTitle);
+        $(".work-entry:last").append(formattedEmployerLink + formattedTitle);
 
         var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
         $(".work-entry:last").append(formattedWorkDates);
@@ -81,14 +84,16 @@ var education = {
             "location": "El Segundo, CA",
             "degree": "BS",
             "major": "Marketing",
-            "dates": "2007-2014"
+            "dates": "2007-2014",
+            "url": "#"
         },
         {
             "name": "AdeNU",
             "location": "Philippines",
             "degree": "BS",
             "major": "Psychology",
-            "dates": "1995-1999"
+            "dates": "1995-1999",
+            "url": "http://www.adnu.edu.ph/"
         }
     ],
     "onlineCourses": [
@@ -111,20 +116,23 @@ education.display = function() {
     for (var i = 0; i < education.schools.length; i++) {
         $("#education").append(HTMLschoolStart);
         var formattedName = HTMLschoolName.replace("%data%", education.schools[i].name);
+        var formattedNameLink = formattedName.replace("#", education.schools[i].url);
         var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
         var formattedDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
         var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
         var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
-        var educationSchools = formattedName + formattedDegree + formattedDates + formattedLocation + formattedMajor;
+        var educationSchools = formattedNameLink + formattedDegree + formattedDates + formattedLocation + formattedMajor;
         $(".education-entry:last").append(educationSchools);
     };
     $(".education-entry:last").append(HTMLonlineClasses);
     for (var i = 0; i < education.onlineCourses.length; i++) {
         var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
+        var formattedTitleLink = formattedTitle.replace("#", education.onlineCourses[i].url);
         var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
         var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
         var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
-        var educationOnline = formattedTitle + formattedSchool + formattedDates + formattedURL;
+        var formattedURLLink = formattedURL.replace("#", education.onlineCourses[i].url);
+        var educationOnline = formattedTitleLink + formattedSchool + formattedDates + formattedURLLink;
         $(".education-entry:last").append(educationOnline);
     };
 };
