@@ -136,7 +136,6 @@ education.display = function() {
         $(".education-entry:last").append(educationOnline);
     }
 };
-
 education.display();
 
 var projects = {
@@ -192,7 +191,7 @@ projects.display = function() {
         var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[i].images);
         $(".project-entry:last").append(formattedImage);
 	}
-}
+};
 projects.display();
 
 $("#mapDiv").append(googleMap);
