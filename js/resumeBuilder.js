@@ -8,6 +8,7 @@ var bio = {
         "email": "jennikins813@yahoo.com",
         "github": "jennikins813",
         "twitter": "@jennikins813",
+        "linkedin": "https://www.linkedin.com/in/jenniferfollero",
         "location": "Los Angeles, CA"
     },
     "skills" : ["awesomeness", "JavaScript", "HTML", "CSS"]
@@ -195,6 +196,10 @@ projects.display = function() {
 projects.display();
 
 $("#mapDiv").append(googleMap);
+
+$("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+$("#footerContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+$("#footerContacts").append(HTMLlinkedin.replace("%data%", bio.contacts.linkedin));
 
 
 // $("#main").append(internationalizeButton);
