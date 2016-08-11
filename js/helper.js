@@ -20,6 +20,7 @@ var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><
 var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
 var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
 var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
+var HTMLlinkedin = '<li class="flex-item"><span class="orange-text">linkedin</span><span class="white-text">%data%</span></li>';
 var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
 var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
 
@@ -58,6 +59,10 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
+//Adding Footer Contact info using Font-awesome icons
+var HTMLfooterGithub = '<li class="flex-item"><a class="orange-text" href="#"><i class="fa fa-github-alt" style="font-size:35px;" aria-hidden="true"></i></a></li>';
+var HTMLfooterTwitter = '<li class="flex-item"><a class="orange-text" href="#"><i class="fa fa-twitter" style="font-size:35px;" aria-hidden="true"></i></a></li>';
+var HTMLfooterLinkedin = '<li class="flex-item"><a class="orange-text" href="#"><i class="fa fa-linkedin" style="font-size:35px;" aria-hidden="true"></i></a></li>';
 
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
