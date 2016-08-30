@@ -24,9 +24,16 @@ h6 {
   padding: 0 5%;
 }
 
+#projects {
+  background-color: #e9e2ea;
+}
+
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  letter-spacing: 3px;
+  /*color: #add8e6;*/
+  /*color: #819eff;*/
+  color: #d4a7e6;
   line-height: 48px;
   display: inline;
 }
@@ -58,9 +65,7 @@ h3,
 h4,
 h5 {
   padding:10px 5%;
-
 }
-
 
 .date-text {
   font-style: italic;
@@ -76,7 +81,6 @@ h5 {
   color: #999;
   line-height: 16px;
   float: right;
-
 }
 
 p {
@@ -100,8 +104,12 @@ a {
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: #819eff;
   display: none;
+}
+
+#skills {
+  display: inline-block;
 }
 
 .orange {
@@ -109,12 +117,13 @@ a {
 }
 
 .orange-text {
-  color: #f5ae23;
+  /*color: #f5ae23;*/
+  color: #819eff;
 }
 
 .white-text {
   font-weight: bold;
-  color: #fff;
+  color: #fdf5e6;
 }
 
 .gray {
@@ -124,12 +133,13 @@ a {
 }
 
 .dark-gray {
-  background-color: #4a4a4a;
+  /*background-color: #4a4a4a;*/
+  background-color: #431c43;
 }
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #431c43;
 }
 
 .flex-box {
@@ -162,10 +172,15 @@ img {
 
 span {
   padding: 5px;
+  color: #fdf5e6;
 }
 
 #lets-connect {
   text-align: center;
+}
+
+#footerContacts {
+  background-color: #431c43;
 }
 
 .online-h3 {
@@ -173,8 +188,8 @@ span {
 }
 
 .center-text {
-  background-color: #484848;
-  color: #f5ae23;
+  background-color: #713f71;
+  color: #d4a7e6;
 }
 
 /* Media queries to handle various device widths */
