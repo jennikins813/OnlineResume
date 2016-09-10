@@ -28,7 +28,7 @@ bio.display = function() {
     $("#header").prepend(formattedName, formattedRole);
 
     var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
-    $("#header").prepend(formattedBioPic);
+    $("#header").append(formattedBioPic);
 
     var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
     var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
@@ -137,14 +137,14 @@ education.display = function() {
         $(".education-entry:last").append(educationSchools);
     }
     $(".education-entry:last").append(HTMLonlineClasses);
-    for (var i = 0; i < education.onlineCourses.length; i++) {
-        var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
-        var formattedTitleLink = formattedTitle.replace("#", education.onlineCourses[i].url);
-        var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
-        var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
-        var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
-        var formattedURLLink = formattedURL.replace("#", education.onlineCourses[i].url);
-        var educationOnline = formattedTitleLink + formattedSchool + formattedDates + formattedURLLink;
+    for (var j = 0; j < education.onlineCourses.length; j++) {
+        var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[j].title);
+        var formattedTitleLink = formattedTitle.replace("#", education.onlineCourses[j].url);
+        var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[j].school);
+        var formattedDatesOnline = HTMLonlineDates.replace("%data%", education.onlineCourses[j].dates);
+        var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[j].url);
+        var formattedURLLink = formattedURL.replace("#", education.onlineCourses[j].url);
+        var educationOnline = formattedTitleLink + formattedSchool + formattedDatesOnline + formattedURLLink;
         $(".education-entry:last").append(educationOnline);
     }
 };
@@ -207,18 +207,6 @@ projects.display = function() {
 projects.display();
 
 $("#mapDiv").append(googleMap);
-
-// var footerContacts = {
-//     "social": {
-//         "github": "https://github.com/jennikins813",
-//         "twitter": "https://twitter.com/jennikins813",
-//         "linkedin": "https://www.linkedin.com/in/jenniferfollero"
-//     }
-// };
-
-// $("#footerContacts").append(HTMLfooterGithub.replace("#", footerContacts.social.github));
-// $("#footerContacts").append(HTMLfooterTwitter.replace("#", footerContacts.social.twitter));
-// $("#footerContacts").append(HTMLfooterLinkedin.replace("#", footerContacts.social.linkedin));
 
 // $("#main").append(internationalizeButton);
 
