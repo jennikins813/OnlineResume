@@ -14,6 +14,14 @@ var bio = {
     "skills" : ["awesomeness", "JavaScript", "HTML", "CSS"]
 };
 
+var footerContacts = {
+    "social": {
+        "github": "https://github.com/jennikins813",
+        "twitter": "https://twitter.com/jennikins813",
+        "linkedin": "https://www.linkedin.com/in/jenniferfollero"
+    }
+};
+
 bio.display = function() {
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -37,6 +45,9 @@ bio.display = function() {
         var formattedSkills = HTMLskills.replace("%data%", bio.skills[i]);
         $("#skills:last").append(formattedSkills);
     }
+    $("#footerContacts").append(HTMLfooterGithub.replace("#", footerContacts.social.github));
+    $("#footerContacts").append(HTMLfooterTwitter.replace("#", footerContacts.social.twitter));
+    $("#footerContacts").append(HTMLfooterLinkedin.replace("#", footerContacts.social.linkedin));
 };
 bio.display();
 
@@ -84,7 +95,7 @@ var education = {
             "name": "JAL",
             "location": "El Segundo, CA",
             "degree": "BS",
-            "majors": "Marketing",
+            "majors": ["Marketing"],
             "dates": "2007-2014",
             "url": "#"
         },
@@ -92,7 +103,7 @@ var education = {
             "name": "AdeNU",
             "location": "Philippines",
             "degree": "BS",
-            "majors": "Psychology",
+            "majors": ["Psychology"],
             "dates": "1995-1999",
             "url": "http://www.adnu.edu.ph/"
         }
@@ -197,17 +208,17 @@ projects.display();
 
 $("#mapDiv").append(googleMap);
 
-var footerContacts = {
-    "social": {
-        "github": "https://github.com/jennikins813",
-        "twitter": "https://twitter.com/jennikins813",
-        "linkedin": "https://www.linkedin.com/in/jenniferfollero"
-    }
-};
+// var footerContacts = {
+//     "social": {
+//         "github": "https://github.com/jennikins813",
+//         "twitter": "https://twitter.com/jennikins813",
+//         "linkedin": "https://www.linkedin.com/in/jenniferfollero"
+//     }
+// };
 
-$("#footerContacts").append(HTMLfooterGithub.replace("#", footerContacts.social.github));
-$("#footerContacts").append(HTMLfooterTwitter.replace("#", footerContacts.social.twitter));
-$("#footerContacts").append(HTMLfooterLinkedin.replace("#", footerContacts.social.linkedin));
+// $("#footerContacts").append(HTMLfooterGithub.replace("#", footerContacts.social.github));
+// $("#footerContacts").append(HTMLfooterTwitter.replace("#", footerContacts.social.twitter));
+// $("#footerContacts").append(HTMLfooterLinkedin.replace("#", footerContacts.social.linkedin));
 
 // $("#main").append(internationalizeButton);
 
